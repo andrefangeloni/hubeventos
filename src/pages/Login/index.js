@@ -1,8 +1,38 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import styles from "./styles";
 
-// import { Container } from './styles';
+export default function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-export default function Login() {
-  return <View />;
+  function handleRegister() {
+    navigation.navigate("Register");
+  }
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        placeholder="E-mail"
+        style={styles.input}
+        autoFocus
+        keyboardType="email-address"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        placeholder="Senha"
+        style={styles.input}
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+      />
+      <TouchableOpacity onPress={() => ""} style={styles.button}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleRegister} style={styles.button}>
+        <Text style={styles.buttonText}>Criar nova conta</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }

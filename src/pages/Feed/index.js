@@ -5,7 +5,7 @@ import styles from "./styles";
 export default function Feed() {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>Teste</Text>
+      <Text style={styles.welcome}>Hub Eventos</Text>
     </View>
   );
 }

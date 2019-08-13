@@ -21,6 +21,11 @@ const authRouter = createAppContainer(
     },
     {
       initialRouteName: "Login",
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: "#7159c1",
+        },
+      },
     }
   )
 );
