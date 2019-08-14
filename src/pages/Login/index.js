@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import logo from "../../assets/logo.png";
 import styles from "./styles";
 
 export default function Login({ navigation }) {
@@ -12,7 +13,9 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image source={logo} />
       <TextInput
+        autoCapitalize="none"
         placeholder="E-mail"
         style={styles.input}
         autoFocus

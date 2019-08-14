@@ -79,6 +79,7 @@ const MenuConfig = {
   initialRouteName: "Feed",
   tabBarOptions: {
     showLabel: false,
+    activeTintColor: "#7159c1",
   },
 };
 

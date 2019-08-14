@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import logo from "../../assets/logo.png";
 import styles from "./styles";
 
 export default function Register() {
@@ -9,6 +10,7 @@ export default function Register() {
 
   return (
     <View style={styles.container}>
+      <Image source={logo} />
       <TextInput
         placeholder="Nome"
         style={styles.input}
