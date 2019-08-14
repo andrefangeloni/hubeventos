@@ -102,3 +102,7 @@ export const DetailsButtonText = styled.Text`
   color: #fff;
   text-transform: uppercase;
 `;
+
+export const ScrollView = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})``;

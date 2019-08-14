@@ -1,8 +1,42 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from "react-native";
+import styles from "./styles";
+// import ImagePicker from 'react-native-image-picker'
 
-// import { Container } from './styles';
+const noUser = "Você precisa estar logado para criar eventos";
 
 export default function AddEvent() {
-  return <View />;
+  const [image, setImage] = useState(null);
+  const [comment, setComment] = useState("");
+
+  return (
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>Novo evento</Text>
+        <View style={styles.imageContainer}>
+          {/* <Image source={this.state.image} 
+                          style={styles.image} /> */}
+        </View>
+        <TouchableOpacity onPress={() => ""} style={styles.button}>
+          <Text style={styles.buttonText}>Escolher imagem</Text>
+        </TouchableOpacity>
+        <TextInput placeholder="Nome do evento" style={styles.input} />
+        <TextInput placeholder="Descrição" style={styles.input} />
+        <View style={{ flexDirection: "row" }}>
+          <TextInput placeholder="Data" style={styles.inputData} />
+          <TextInput placeholder="Hora" style={styles.inputHora} />
+        </View>
+        <TouchableOpacity onPress={() => ""} style={styles.button}>
+          <Text style={styles.buttonText}>Salvar</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </ScrollView>
+  );
 }
