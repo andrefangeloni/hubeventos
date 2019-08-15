@@ -12,6 +12,7 @@ import AddEvent from "./pages/AddEvent";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import EventDetails from "./pages/EventDetails";
 
 const authRouter = createAppContainer(
   createStackNavigator(
@@ -25,6 +26,7 @@ const authRouter = createAppContainer(
         headerStyle: {
           backgroundColor: "#7159c1",
         },
+        headerTintColor: "#FFF",
       },
     }
   )
@@ -42,10 +44,31 @@ const loginOrProfileRouter = createAppContainer(
   )
 );
 
+const feedRouter = createAppContainer(
+  createStackNavigator(
+    {
+      Feed: { screen: Feed, navigationOptions: { title: "Hub Eventos" } },
+      EventDetails: {
+        screen: EventDetails,
+        navigationOptions: { title: "Detalhes do Evento" },
+      },
+    },
+    {
+      headerBackTitleVisible: false,
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: "#7159c1",
+        },
+        headerTintColor: "#FFF",
+      },
+    }
+  )
+);
+
 const MenuRoutes = {
   Feed: {
     name: "Feed",
-    screen: Feed,
+    screen: feedRouter,
     navigationOptions: {
       title: "Feed",
       tabBarIcon: ({ tintColor }) => (
@@ -95,6 +118,25 @@ const SplashRouter = createAppContainer(
     },
     {
       initialRouteName: "Splash",
+    }
+  )
+);
+
+const Routes = createAppContainer(
+  createStackNavigator(
+    {
+      Feed,
+      EventDetails,
+    },
+    {
+      headerLayoutPreset: "center",
+      headerBackTitleVisible: false,
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: "#7159c1",
+        },
+        headerTintColor: "#FFF",
+      },
     }
   )
 );

@@ -17,8 +17,12 @@ import {
   Owner,
 } from "./styles";
 
-export default function Feed() {
+export default function Feed({ navigation }) {
   const [loading, setLoading] = useState(false);
+
+  function handleDetails() {
+    navigation.navigate("EventDetails");
+  }
 
   return (
     <Container>
@@ -52,7 +56,7 @@ export default function Feed() {
           <DateEv>14 de Agosto, às 08h</DateEv>
           <Address>Expo Dom Pedro - Campinas/SP</Address>
           <Owner>Criado por: Dextra</Owner>
-          <DetailsButton onPress={() => ""}>
+          <DetailsButton onPress={handleDetails}>
             <DetailsButtonText>DETALHES</DetailsButtonText>
           </DetailsButton>
         </Card>
