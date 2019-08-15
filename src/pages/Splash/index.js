@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect } from "react";
 import { View, Image } from "react-native";
 import styles from "./styles";
@@ -8,17 +7,6 @@ export default function Splash({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate("App");
-=======
-import React, {useEffect} from 'react';
-import {View, Image} from 'react-native';
-import styles from './styles';
-import logo from '../../assets/logo.png';
-
-export default function Splash({navigation}) {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('App');
->>>>>>> Melhoria na estilização
     }, 2000);
   }, []);
 
