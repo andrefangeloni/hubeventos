@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import styled from "styled-components/native";
-import { RectButton } from "react-native-gesture-handler";
-=======
 import styled from 'styled-components/native';
 import {RectButton} from 'react-native-gesture-handler';
->>>>>>> Melhoria na estilização
 
 export const Container = styled.View`
   flex: 1;
@@ -20,11 +15,7 @@ export const Form = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-<<<<<<< HEAD
-  placeholderTextColor: "#999",
-=======
   placeholderTextColor: '#999',
->>>>>>> Melhoria na estilização
 })`
   flex: 1;
   height: 40px;
@@ -75,26 +66,6 @@ export const Title = styled.Text`
 export const Description = styled.Text.attrs({
   numberOfLines: 2,
 })`
-<<<<<<< HEAD
-  padding: 5px 10px;
-  color: #000;
-`;
-
-export const DateEv = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-
-export const Address = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-
-export const Owner = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-=======
   padding: 5px 15px;
   color: #000;
 `;
@@ -104,7 +75,6 @@ export const Text = styled.Text`
   color: #444;
 `;
 
->>>>>>> Melhoria na estilização
 export const DetailsButton = styled(RectButton)`
   margin: 15px;
   margin-top: 10px;
