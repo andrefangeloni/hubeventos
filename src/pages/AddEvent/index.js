@@ -25,12 +25,13 @@ export default function AddEvent() {
           <Text style={styles.buttonText}>Escolher imagem</Text>
         </TouchableOpacity>
         <TextInput placeholder="Nome do evento" style={styles.input} />
-        <TextInput placeholder="Descrição" style={styles.input} />
+        <TextInput placeholder="Local" style={styles.input} />
         <TextInput placeholder="Valor do ingresso" style={styles.input} />
         <View style={{ flexDirection: "row" }}>
           <TextInput placeholder="Data" style={styles.inputData} />
           <TextInput placeholder="Hora" style={styles.inputHora} />
         </View>
+        <TextInput placeholder="Descrição" style={styles.input} />
         <TouchableOpacity onPress={() => ""} style={styles.button}>
           <Text style={styles.buttonText}>Salvar</Text>
         </TouchableOpacity>

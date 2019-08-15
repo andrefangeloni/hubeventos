@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "90%",
-    height: Dimensions.get("window").width / 2,
+    height: Dimensions.get("window").width / 3,
     backgroundColor: "#EEE",
     marginTop: 10,
   },
