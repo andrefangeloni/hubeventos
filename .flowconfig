@@ -11,15 +11,6 @@
 ; Ignore duplicate module providers
 ; For RN Apps installed via npm, "Libraries" folder is inside
 ; "node_modules/react-native" but in the source repo it is in the root
-<<<<<<< HEAD
-.*/Libraries/react-native/React.js
-
-; Ignore polyfills
-.*/Libraries/polyfills/.*
-
-; Ignore metro
-.*/node_modules/metro/.*
-=======
 node_modules/react-native/Libraries/react-native/React.js
 
 ; Ignore polyfills
@@ -34,7 +25,6 @@ node_modules/warning/.*
 
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
->>>>>>> Melhoria na estilização
 
 [include]
 
@@ -48,13 +38,10 @@ emoji=true
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 
-<<<<<<< HEAD
-=======
 module.file_ext=.js
 module.file_ext=.json
 module.file_ext=.ios.js
 
->>>>>>> Melhoria na estilização
 module.system=haste
 module.system.haste.use_name_reducers=true
 # get basename
@@ -67,43 +54,21 @@ module.system.haste.name_reducers='^\(.*\)\.android$' -> '\1'
 module.system.haste.name_reducers='^\(.*\)\.native$' -> '\1'
 module.system.haste.paths.blacklist=.*/__tests__/.*
 module.system.haste.paths.blacklist=.*/__mocks__/.*
-<<<<<<< HEAD
-module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/Animated/src/polyfills/.*
-module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/Libraries/.*
-=======
 module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/Libraries/.*
 module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/RNTester/.*
 module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/IntegrationTests/.*
 module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/react-native/react-native-implementation.js
 module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/Animated/src/polyfills/.*
->>>>>>> Melhoria na estilização
 
 munge_underscores=true
 
 module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf\)$' -> 'RelativeImageStub'
 
-<<<<<<< HEAD
-module.file_ext=.js
-module.file_ext=.jsx
-module.file_ext=.json
-module.file_ext=.native.js
-
-=======
->>>>>>> Melhoria na estilização
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe
 suppress_type=$FlowFixMeProps
 suppress_type=$FlowFixMeState
 
-<<<<<<< HEAD
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)?:? #[0-9]+
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
-suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
-
-[version]
-^0.92.0
-=======
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native\\(_ios\\)?_\\(oss\\|fb\\)[a-z,_]*\\)?)\\)
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(<VERSION>\\)? *\\(site=[a-z,_]*react_native\\(_ios\\)?_\\(oss\\|fb\\)[a-z,_]*\\)?)\\)?:? #[0-9]+
 suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
@@ -132,4 +97,3 @@ untyped-type-import
 
 [version]
 ^0.98.0
->>>>>>> Melhoria na estilização
