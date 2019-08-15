@@ -1,4 +1,5 @@
 module.exports = {
+<<<<<<< HEAD
   env: {
     es6: true,
   },
@@ -23,4 +24,8 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/prop-types": 0,
   },
+=======
+  root: true,
+  extends: '@react-native-community',
+>>>>>>> Melhoria na estilização
 };

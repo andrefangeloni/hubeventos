@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-import { Keyboard, ActivityIndicator, ScrollView } from "react-native";
+import React, {useState} from 'react';
+import {Keyboard, ActivityIndicator, ScrollView} from 'react-native';
+
 import {
   Container,
   Card,
   Image,
   Title,
   Description,
-  DateEv,
-  Address,
+  Text,
   BuyButton,
   BuyButtonText,
-  Owner,
-  Subscribed,
-} from "./styles";
+} from './styles';
 
-export default function EventDetails({ navigation }) {
+export default function EventDetails({navigation}) {
   function handleBuy() {
-    navigation.navigate("Login");
+    navigation.navigate('Login');
   }
 
   return (
@@ -26,15 +24,16 @@ export default function EventDetails({ navigation }) {
           <Image
             source={{
               uri:
-                "http://feirasenegocios.com.br/wp-content/uploads/2019/06/DEVCAMP.png",
+                'http://feirasenegocios.com.br/wp-content/uploads/2019/06/DEVCAMP.png',
             }}
           />
           <Title>DevCamp</Title>
           <Description>Conferência de Desenvolvimento de Software</Description>
-          <DateEv>14 de Agosto, às 08h</DateEv>
-          <Address>Expo Dom Pedro - Campinas/SP</Address>
-          <Owner>Criado por: Dextra</Owner>
-          <Subscribed>Quantidade de Inscritos: 10</Subscribed>
+          <Text>14 de Agosto, às 08h</Text>
+          <Text>Expo Dom Pedro - Campinas/SP</Text>
+          <Text>Criado por: Dextra</Text>
+          <Text>Quantidade de Inscritos: 10</Text>
+          <Text>Valor: R$ 100,00</Text>
           <BuyButton onPress={handleBuy}>
             <BuyButtonText>Comprar</BuyButtonText>
           </BuyButton>

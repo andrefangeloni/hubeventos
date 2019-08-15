@@ -1,5 +1,5 @@
-import styled from "styled-components/native";
-import { RectButton } from "react-native-gesture-handler";
+import styled from 'styled-components/native';
+import {RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -35,24 +35,8 @@ export const Description = styled.Text.attrs({
   padding: 5px 10px;
   color: #000;
 `;
-
-export const DateEv = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-
-export const Address = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-
-export const Owner = styled.Text`
-  padding: 5px 10px;
-  color: #444;
-`;
-
-export const Subscribed = styled.Text`
-  padding: 5px 10px;
+export const Text = styled.Text`
+  padding: 5px 15px;
   color: #444;
 `;
 

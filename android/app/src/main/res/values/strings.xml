@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">hubeventos</string>
+=======
+    <string name="app_name">Hello App Display Name</string>
+>>>>>>> Melhoria na estilização
 </resources>
