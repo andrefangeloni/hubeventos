@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import api from "../../services/api";
-// import ImagePicker from "react-native-image-picker"
+import ImagePicker from "react-native-image-picker";
 import {
   SafeAreaView,
   View,
   Text,
+  Image,
   TouchableOpacity,
   TextInput,
   ScrollView,
 } from "react-native";
 import styles from "./styles";
-// import ImagePicker from 'react-native-image-picker'
 
 const noUser = "Você precisa estar logado para criar eventos";
 
@@ -57,42 +57,36 @@ export default function AddEvent({ navigation }) {
           };
 
           setPreview(preview);
+          setImage(image);
         }
       }
     );
   }
 
   async function handleSubmit() {
-    try {
-      const data = new FormData();
-      // data.append("fileName", setImage);
-      data.append("name", name);
-      data.append("description", description);
-      data.append("place", place);
-      data.append("value", value);
-      data.append("date", date);
-      data.append("hour", hour);
+    const data = new FormData();
+    data.append("image", image);
+    data.append("name", name);
+    data.append("description", description);
+    data.append("place", place);
+    data.append("value", value);
+    data.append("date", date);
+    data.append("hour", hour);
 
-      const response = await api.post("/events", data);
-      console.log(response.data);
-      navigation.navigate("Feed");
-    } catch (err) {
-      console.log(err, "Deu erro");
-    }
+    await api.post("/events", data);
+
+    navigation.navigate("Feed");
   }
 
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Novo evento</Text>
-        <View style={styles.imageContainer} />
-        <TouchableOpacity onPress={() => {}} style={styles.button}>
+        <TouchableOpacity onPress={handleSelectImage} style={styles.button}>
           <Text style={styles.buttonText}>Escolher imagem</Text>
         </TouchableOpacity>
 
-        {/* {useState(preview) && (
-          <View style={styles.imageContainer} source={useState(preview)} />
-        )} */}
+        {preview && <Image style={styles.preview} source={preview} />}
 
         <TextInput
           style={styles.input}

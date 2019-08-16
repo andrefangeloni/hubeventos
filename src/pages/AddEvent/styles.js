@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,16 +10,12 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === "ios" ? 30 : 10,
     fontWeight: "bold",
   },
-  imageContainer: {
-    width: "90%",
-    height: Dimensions.get("window").width / 3,
-    backgroundColor: "#EEE",
+  preview: {
+    width: 100,
+    height: 100,
     marginTop: 10,
-  },
-  image: {
-    width: "100%",
-    height: Dimensions.get("window").width / 2,
-    resizeMode: "center",
+    alignSelf: "center",
+    borderRadius: 4,
   },
   button: {
     marginTop: 30,
