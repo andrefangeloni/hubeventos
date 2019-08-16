@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Keyboard, ActivityIndicator, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import io from "socket.io-client";
 import api from "../../services/api";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -18,7 +18,6 @@ import {
 } from "./styles";
 
 export default function Feed({ navigation }) {
-  const [loading, setLoading] = useState(false);
   const [feed, setFeed] = useState([]);
 
   useEffect(() => {
@@ -64,12 +63,8 @@ export default function Feed({ navigation }) {
           returnKeyType="send"
           onSubmitEditing={() => ""}
         />
-        <SearchButton loading={loading} onPress={() => ""}>
-          {loading ? (
-            <ActivityIndicator color="#FFF" />
-          ) : (
-            <Icon name="search" size={20} color="#FFF" />
-          )}
+        <SearchButton onPress={() => ""}>
+          <Icon name="search" size={20} color="#FFF" />
         </SearchButton>
       </Form>
 

@@ -21,6 +21,7 @@ export default function AddEvent({ navigation }) {
   const [description, setDescription] = useState("");
   const [place, setPlace] = useState("");
   const [value, setValue] = useState("");
+  const [author, setAuthor] = useState("");
   const [date, setDate] = useState("");
   const [hour, setHour] = useState("");
 
@@ -70,6 +71,7 @@ export default function AddEvent({ navigation }) {
     data.append("description", description);
     data.append("place", place);
     data.append("value", value);
+    data.append("author", author);
     data.append("date", date);
     data.append("hour", hour);
 
@@ -111,6 +113,13 @@ export default function AddEvent({ navigation }) {
           placeholder="Valor do ingresso"
           value={value}
           onChangeText={setValue}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Criado por"
+          autoCorrect={false}
+          value={author}
+          onChangeText={setAuthor}
         />
         <View style={{ flexDirection: "row" }}>
           <TextInput
