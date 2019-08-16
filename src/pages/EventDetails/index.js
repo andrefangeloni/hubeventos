@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Keyboard, ActivityIndicator, ScrollView} from 'react-native';
-
+import React, { useState } from "react";
+import { Keyboard, ActivityIndicator, ScrollView } from "react-native";
+import api from "../../services/api";
 import {
   Container,
   Card,
@@ -10,11 +10,11 @@ import {
   Text,
   BuyButton,
   BuyButtonText,
-} from './styles';
+} from "./styles";
 
-export default function EventDetails({navigation}) {
+export default function EventDetails({ navigation }) {
   function handleBuy() {
-    navigation.navigate('Login');
+    navigation.navigate("Login");
   }
 
   return (
@@ -24,7 +24,7 @@ export default function EventDetails({navigation}) {
           <Image
             source={{
               uri:
-                'http://feirasenegocios.com.br/wp-content/uploads/2019/06/DEVCAMP.png',
+                "http://feirasenegocios.com.br/wp-content/uploads/2019/06/DEVCAMP.png",
             }}
           />
           <Title>DevCamp</Title>

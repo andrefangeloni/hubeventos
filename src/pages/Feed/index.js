@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Keyboard, ActivityIndicator, ScrollView } from "react-native";
+import io from "socket.io-client";
+import api from "../../services/api";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import {
   Container,
@@ -17,9 +19,39 @@ import {
 
 export default function Feed({ navigation }) {
   const [loading, setLoading] = useState(false);
+  const [feed, setFeed] = useState([]);
+
+  useEffect(() => {
+    async function loadEvents() {
+      registerToSocket();
+      const response = await api.get("/events");
+      setFeed(response.data);
+    }
+    loadEvents();
+  }, []);
+
+  function registerToSocket() {
+    const socket = io("http://192.168.15.12:3333");
+
+    socket.on("event", newEvent => {
+      setFeed([newEvent, ...feed]);
+    });
+
+    socket.on("subscribe", subscribed => {
+      setFeed({
+        feed: feed.map(event =>
+          event._id === subscribed._id ? subscribed : event
+        ),
+      });
+    });
+  }
 
   function handleDetails() {
     navigation.navigate("EventDetails");
+  }
+
+  function handleSubscribe(id) {
+    api.post(`/events/${id}/subscribe`);
   }
 
   return (
@@ -42,40 +74,22 @@ export default function Feed({ navigation }) {
       </Form>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Card>
-          <Image
-            source={{
-              uri:
-                "http://feirasenegocios.com.br/wp-content/uploads/2019/06/DEVCAMP.png",
-            }}
-          />
-          <Title>DevCamp</Title>
-          <Description>Conferência de Desenvolvimento de Software</Description>
-          <Text>14 de Agosto, às 08h</Text>
-          <Text>Expo Dom Pedro - Campinas/SP</Text>
-          <Text>Criado por: Dextra</Text>
-          <DetailsButton onPress={handleDetails}>
-            <DetailsButtonText>DETALHES</DetailsButtonText>
-          </DetailsButton>
-        </Card>
-        <Card>
-          <Image
-            source={{
-              uri:
-                "https://res.cloudinary.com/practicaldev/image/fetch/s--DsRi1C7P--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/8m2htjjpp31idwz8wnrz.jpg",
-            }}
-          />
-          <Title>Meetup React Native</Title>
-          <Description>
-            Maior evento de programação mobile do interior
-          </Description>
-          <Text>16 de Agosto, às 18h</Text>
-          <Text>Avenida Francisco Glicério, 100 - Campinas/SP</Text>
-          <Text>Criado por: Facebook Inc.</Text>
-          <DetailsButton onPress={() => ""}>
-            <DetailsButtonText>DETALHES</DetailsButtonText>
-          </DetailsButton>
-        </Card>
+        {feed.map(event => (
+          <Card key={event._id}>
+            <Image
+              source={{ uri: `http://192.168.15.12:3333/files/${event.image}` }}
+            />
+            <Title>{event.name}</Title>
+            <Description>{event.description}</Description>
+            <Text>{`${event.date} às ${event.hour}`}</Text>
+            <Text>{event.place}</Text>
+            <Text>{`Criado por: ${event.author}`}</Text>
+            <Text>{`Inscritos: ${event.subscribes}`}</Text>
+            <DetailsButton onPress={handleDetails}>
+              <DetailsButtonText>DETALHES</DetailsButtonText>
+            </DetailsButton>
+          </Card>
+        ))}
       </ScrollView>
     </Container>
   );
