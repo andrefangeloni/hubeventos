@@ -1,7 +1,7 @@
 package com.hubeventos;
 
 import android.app.Application;
-
+import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;

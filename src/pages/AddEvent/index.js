@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import ImagePicker from "react-native-image-picker"
 import {
   SafeAreaView,
   View,
@@ -13,15 +14,28 @@ import styles from "./styles";
 const noUser = "Você precisa estar logado para criar eventos";
 
 export default function AddEvent() {
-  const [image, setImage] = useState(null);
-  const [comment, setComment] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [place, setPlace] = useState("");
+  const [value, setValue] = useState("");
+  const [date, setDate] = useState("");
+  const [hour, setHour] = useState("");
+
+  // function handleSelectImage() {
+  //   ImagePicker.showImagePicker(
+  //     {
+  //       title: "Selecionar imagem",
+  //     },
+  //     upload => {}
+  //   );
+  // }
 
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Novo evento</Text>
         <View style={styles.imageContainer} />
-        <TouchableOpacity onPress={() => ""} style={styles.button}>
+        <TouchableOpacity onPress={handleSelectImage} style={styles.button}>
           <Text style={styles.buttonText}>Escolher imagem</Text>
         </TouchableOpacity>
         <TextInput placeholder="Nome do evento" style={styles.input} />
